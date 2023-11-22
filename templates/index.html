@@ -6,7 +6,7 @@
     <meta property="og:url" content="https://petom.site">
     <meta property="og:site_name" content="PETOM">
     <meta property="og:title" content="PETOM"/>
-    <meta property="og:description" content="YOLOv5를 이용한 반려동물 피부 질환 탐지"/>
+    <meta property="og:description" content="YOLOv8를 이용한 반려동물 안구,피부 질환 탐지"/>
     <meta property="og:locale" content="ko_KO">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="{{ url_for('static', filename='images/favicon.svg') }}"/>
@@ -33,14 +33,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
     <!-- style.css -->
     <link rel="stylesheet" href="/static/css/style.css">
-    <title>Petom</title>
+    <title>냥멍닥터 김사부</title>
 
 </head>
 
 <div id="process"></div>
 <header class="navbar navbar-expand-lg navbar-light" id="nav">
     <div class="container-fluid ">
-        <a class="navbar-brand " href="/"><i class="fa-solid fa-shield-dog"></i><strong>PETOM</strong></a>
+        <a class="navbar-brand " href="/"><i class="fa-solid fa-shield-dog"></i><strong>냥멍닥터 김사부</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,13 +48,19 @@
         <div class="navbar collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="about"><strong>About</strong></a>
+                    <a class="nav-link" href="about"><strong>HOME</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="detect"><strong>증상탐지</strong></a>
+                    <a class="nav-link" href="eye_detect"><strong>안구질환</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="hospital" id="hospital" onclick="loading()"><strong>병원지도</strong></a>
+                    <a class="nav-link" href="skin_detect"><strong>피부질환</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bcs"><strong>BCS비만도</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hospital" id="hospital" onclick="loading()"><strong>병원찾기</strong></a>
                 </li>
             </ul>
         </div>
