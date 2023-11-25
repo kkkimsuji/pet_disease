@@ -1,0 +1,139 @@
+/* --BCS 비만도 */
+
+element.style {
+}
+
+/*흰색 박스 부분*/
+.hRbrmk {
+    padding: 60px 50px;
+    width: 620px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 14px;
+    box-sizing: border-box;
+    box-shadow: rgba(222, 222, 224, 0.65) 0px 12px 25px -20px;
+}
+/*회색부분*/
+.fNKwjb {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 80px 0px;
+    background-color: rgb(246, 247, 248);
+}
+
+/*글자와 그림 : 반려동물 종류*/
+.kYCTRC {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 32px;
+}
+
+
+/*글자와 그림*/
+.gJPmZJ {
+    flex-direction: row;
+}
+.gJPmZJ {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/* 글자 폰트 설정
+.YylJn {
+    width: 160px;
+    font-weight: bold;
+    padding: 10px 0px;
+    white-space: pre-line;
+    font-family: JalnanOTF;
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: -0.32px;
+}*/
+
+/*bcs 선택 버튼들의 정렬*/
+.fptxwn {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 360px;
+}
+
+/*버튼 중 그림이 들어간 부분*/
+.icon_button {
+    width: 110px;
+    height: 110px;
+    background: transparent;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    &:hover {
+        opacity: 1.0;
+        border-radius: 10px;
+        border: 5px solid rgb(252, 209, 30);
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        flex-direction: column;
+        width: 160px;
+        height: 140px;
+        box-sizing: border-box;
+        margin-right: 20px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(9, 9, 9);/* 마우스가 올라갔을 때 */
+    }
+
+}
+
+/*버튼 밑 글씨*/
+.iOsWVx {
+    text-align: center;
+    font-weight: bold;
+    font-family: JalnanOTF;
+    margin: 0px;
+    color: inherit;
+}
+
+/*비만도 설명*/
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+/*버튼의 회색 부분*/
+.bQTTNz {
+    border-radius: 10px;
+    background-color: rgb(246, 247, 248);
+    border: 5px solid rgb(246, 247, 248);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    /*고양이, 강아지 선택박스*/
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    color: rgb(207, 206, 206);
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+
+label {
+    cursor: default;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Apple SD Gothic Neo", sans-serif;
+}
+

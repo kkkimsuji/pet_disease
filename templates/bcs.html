@@ -1,23 +1,45 @@
 {% extends 'index.html' %}
+
 {% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://code.jquery.com/jquery-1.8.0.js"
+                integrity="sha256-00Fh8tkPAe+EmVaHFpD+HovxWk7b97qwqVi7nLvjdgs="
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/static/css/bcs_style.css"/>
+        <title>BCS 비만도</title>
+    </head>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script src="https://code.jquery.com/jquery-1.8.0.js"
-            integrity="sha256-00Fh8tkPAe+EmVaHFpD+HovxWk7b97qwqVi7nLvjdgs="
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/static/css/style.css"/>
-    <title>BCS비만도</title>
+    <body>
+        <div class="fNKwjb">
+            <form class="hRbrmk">
+                <div class="kYCTRC">
+                    <div class="gJPmZJ">
+                        <label class="YylJn">반려동물 종류</label>
+                    </div>
+                </div>
+                        <div class="fptxwn">
+                            <div class="bQTTNz">
+                                <a href="dog_bcs" class="button" id="dogbutton">
+                                    <img src="/static/images/dog_icon.png" alt="강아지" class="icon_button">
+                                </a>
+                                <p class="iOsWVx">강아지</p>
+                            </div>
 
-    <div class="grid text-center">
-        <div class="row">
-            <div class="col">
-                <p></p>
-                반려동물의 비만도를 알려드립니다. 좀 만 기다리세요.</p>
-            </div>
+                            <div class="bQTTNz">
+                                <a href="cat_bcs" class="button" id="dogbutton">
+                                    <img src="/static/images/cat_icon.png" alt="고양이" class="icon_button">
+                                </a>
+                                <p class="iOsWVx">고양이</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
-    <script defer src="/static/js/main.js"></script>
+    </body>
 
+    <script defer src="/static/js/main.js"></script>
 {% endblock %}

@@ -82,10 +82,34 @@ def bcs():
 def hospital():
     return render_template("hospital.html")
 
+@app.route('/dog_bcs')
+def dog_bcs():
+    return render_template("dog_bcs.html")
+
+@app.route('/cat_bcs')
+def cat_bcs():
+    return render_template("cat_bcs.html")
+
+@app.route('/bcs_1')
+def bcs_1():
+    return render_template("bcs_1.html")
+@app.route('/bcs_2')
+def bcs_2():
+    return render_template("bcs_2.html")
+@app.route('/bcs_3')
+def bcs_3():
+    return render_template("bcs_3.html")
+@app.route('/bcs_4')
+def bcs_4():
+    return render_template("bcs_4.html")
+@app.route('/bcs_5')
+def bcs_5():
+    return render_template("bcs_5.html")
 
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
+
 
 
 if __name__ == '__main__':
