@@ -1,6 +1,6 @@
 {% extends 'index.html' %}
 {% block content %}
-
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,49 +9,140 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/bcs_style.css"/>
     <title>BCS 비만도</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 10%;
+            padding: 10px;
+            border-spacing: 20px;
+        }
 
+        td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* 마우스 오버 시 색상 변경 */
+        th:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* 해당 열의 td에 대한 스타일 */
+        td.active {
+        background-color: #DCDCDC;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var headers = document.querySelectorAll('th');
+
+        headers.forEach(function(header) {
+            var columnIndex = Array.from(header.parentNode.children).indexOf(header);
+
+        header.addEventListener('mouseenter', function() {
+            var rows = document.querySelectorAll('tr');
+            rows.forEach(function(row) {
+                var cells = row.children;
+                if (cells.length > columnIndex) {
+                cells[columnIndex].classList.add('active');
+                }
+            });
+        });
+
+        header.addEventListener('mouseleave', function() {
+            var cells = document.querySelectorAll('td.active');
+            cells.forEach(function(cell) {
+            cell.classList.remove('active');
+            });
+
+        header.style.backgroundColor = ''; // th의 배경색 초기화
+        });
+        });
+        });
+    </script>
+</head>
     <div class="fNKwjb">
     <form class="hRbrmk">
-        <div class="kYCTRC">
-            <div class="gJPmZJ">
-                <label class="YylJn"><strong>STEP 2 </strong>강아지의 상태를 선택해주세요</label>
+        <label class="YylJn"><strong>STEP 2 </strong>강아지의 상태를 선택해주세요</label>
+        <div class="fptxwn">
+                    <table>
+                        <!--BCS 선택 버튼-->
+                        <tr>
+                          <th>
+                              <a href="bcs_1" class="button">
+                                <img src="/static/images/dog_1.png" alt="강아지1" class="icon_button">
+                              </a>
+                          </th>
+                          <th>
+                              <a href="bcs_2" class="button">
+                                <img src="/static/images/dog_2.png" alt="강아지2" class="icon_button">
+                              </a>
+                          </th>
+                          <th>
+                            <a href="bcs_3" class="button">
+                                <img src="/static/images/dog_3.png" alt="강아지3" class="icon_button">
+                            </a>
+                          </th>
+                          <th>
+                              <a href="bcs_4" class="button">
+                                  <img src="/static/images/dog_4.png" alt="강아지4" class="icon_button">
+                              </a>
+                          </th>
+                          <th>
+                              <a href="bcs_5" class="button">
+                                  <img src="/static/images/dog_5.png" alt="강아지5" class="icon_button">
+                              </a>
+                          </th>
+                        </tr>
 
-                <div class="fptxwn">
-                    <div class="bQTTNz">
-                        <a href="bcs_1" class="button">
-                            <img src="/static/images/dog_1.png" alt="강아지1" class="icon_button">
-                        </a>
-                            <p class="iOsWVx">강아지</p>
-                    </div>
+                        <tr>
+                            <td><strong>많이 마름</strong></td>
+                            <td><strong>마름</strong></td>
+                            <td><strong>정상</strong></td>
+                            <td><strong>비만</strong></td>
+                            <td><strong>고도 비만</strong></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>6</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>갈비뼈, 요추, 골반 뼈 그리고 모든 뼈 융기가 드러나며 체지방이 보이지 않으며 명백한 근육 손실이 보입니다.</td>
+                            <td>갈비뼈가 쉽게 만져지며 만져지는 지방이 적습니다. 요추의 끝이 보이며 골반 뼈 융기가 나타나고 허리와 복부가 홀쭉해집니다.</td>
+                            <td>적당한 지방이 덮힌 갈비뼈가 쉽게 촉진되고 허리가 쉽게 구분되며 옆에서 봤을 때 배가 들어가 있습니다.</td>
+                            <td>경미하게 지방이 덮힌 갈비뼈가 만져지며 허리가 구분되지 않으나 튀어나오지는 않고 복부가 들어가 있어 구분이 됩니다.</td>
+                            <td>많은 지방이 덮고 있어 갈비뼈가 만져지지 않으며 요추와 몸쪽 꼬리 부분에 많은 지방이 축적되어 살이 접히고 허리와 배가 구분이 되지 않습니다. 명백한 복부의 팽창이 보입니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td>5</td>
+                            <td>7</td>
+                            <td>9</td>
+                        </tr>
 
-                    <div class="bQTTNz">
-                        <a href="bcs_2" class="button">
-                            <img src="/static/images/dog_2.png" alt="강아지2" class="icon_button">
-                        </a>
-                            <p class="iOsWVx">강아지</p>
-                    </div>
-                    <div class="bQTTNz">
-                        <a href="bcs_3" class="button">
-                            <img src="/static/images/dog_3.png" alt="강아지3" class="icon_button">
-                        </a>
-                            <p class="iOsWVx">강아지3</p>
-                    </div>
+                        <tr>
+                            <td>갈비뼈, 요추, 골반 뼈가 쉽게 보이며 지방이 만져지지 않으며 몇몇 뼈 융기가 보이고 근육량의 적은 감소가 보입니다.</td>
+                            <td></td>
+                            <td>과도한 지방없이 갈비뼈가 만져지며 위에서 봤을때 갈비뼈 뒤에서 허리가 보이며 여에서 봤을 때 배가 들어가 있습니다.</td>
+                            <td>지방에 덮여있어 갈비뼈를 만지기 힘듭니다. 요추와 몸쪽 꼬리 부분에 지방의 축적이 보이고 허리를 구분하기 힘들며 배는 아직 들어가 있습니다.</td>
+                            <td>매우 많은 양의 지방이 목, 척추, 몸 쪽 꼬리에 축적되어 살이 접히며 허리, 배가 구분이 안됩니다. 사지에도 지방이 축적되며 복부팽창이 있습니다.</td>
+                        </tr>
 
-                    <div class="bQTTNz">
-                        <a href="bcs_4" class="button">
-                            <img src="/static/images/dog_4.png" alt="강아지4" class="icon_button">
-                        </a>
-                            <p class="iOsWVx">강아지4</p>
-                    </div>
-
-                    <div class="bQTTNz">
-                        <a href="bcs_5" class="button">
-                            <img src="/static/images/dog_5.png" alt="강아지5" class="icon_button">
-                        </a>
-                            <p class="iOsWVx">강아지5</p>
-                    </div>
-                </div>
-            </div>
+                    </table>
         </div>
     </form>
     </div>
