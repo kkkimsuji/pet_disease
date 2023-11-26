@@ -10,21 +10,32 @@
     <link rel="stylesheet" href="/static/css/bcs_style.css"/>
     <title>BCS 비만도</title>
     <style>
+        a {
+            color: gray; /* 링크의 글자 색상을 검정으로 지정 */
+            text-decoration: none; /* 링크에 밑줄 제거 */
+        }
         table {
             border-collapse: collapse;
-            width: 10%;
+            width: 100%;
             padding: 10px;
+            margin: auto;
+            margin-top : 20px;
+            margin-bottom : 20px;
             border-spacing: 20px;
         }
 
         td {
-            border: 1px solid #dddddd;
             text-align: center;
             padding: 5px;
             overflow: hidden;
             text-overflow: ellipsis;
             font-size: 12px;
+            border: none;
+            border-left: 1px solid rgb(236, 237, 238); /* 셀의 좌측 테두리를 유지 */
+            border-right: 1px solid rgb(236, 237, 238); /* 셀의 우측 테두리를 유지 */
+            vertical-align: top;
         }
+
 
         th {
             background-color: #f2f2f2;
@@ -39,7 +50,7 @@
 
         /* 해당 열의 td에 대한 스타일 */
         td.active {
-        background-color: #DCDCDC;
+        background-color: #f2f2f2;
         }
     </style>
     <script>
@@ -74,9 +85,9 @@
     <div class="fNKwjb">
     <form class="hRbrmk">
         <label class="YylJn"><strong>STEP 2 </strong>강아지의 상태를 선택해주세요</label>
-        <div class="fptxwn">
-                    <table>
-                        <!--BCS 선택 버튼-->
+        <div>
+            <table>
+                <!--BCS 선택 버튼-->
                         <tr>
                           <th>
                               <a href="bcs_1" class="button">
@@ -113,11 +124,11 @@
                             <td><strong>고도 비만</strong></td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>6</td>
-                            <td>8</td>
+                            <td><strong>1</strong></td>
+                            <td><strong>3</strong></td>
+                            <td><strong>4</strong></td>
+                            <td><strong>6</strong></td>
+                            <td><strong>8</strong></td>
                         </tr>
                         <tr>
                             <td>갈비뼈, 요추, 골반 뼈 그리고 모든 뼈 융기가 드러나며 체지방이 보이지 않으며 명백한 근육 손실이 보입니다.</td>
@@ -127,11 +138,11 @@
                             <td>많은 지방이 덮고 있어 갈비뼈가 만져지지 않으며 요추와 몸쪽 꼬리 부분에 많은 지방이 축적되어 살이 접히고 허리와 배가 구분이 되지 않습니다. 명백한 복부의 팽창이 보입니다.</td>
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td></td>
-                            <td>5</td>
-                            <td>7</td>
-                            <td>9</td>
+                            <td><strong>2</strong></td>
+                            <td><strong></strong></td>
+                            <td><strong>5</strong></td>
+                            <td><strong>7</strong></td>
+                            <td><strong>9</strong></td>
                         </tr>
 
                         <tr>
@@ -141,8 +152,8 @@
                             <td>지방에 덮여있어 갈비뼈를 만지기 힘듭니다. 요추와 몸쪽 꼬리 부분에 지방의 축적이 보이고 허리를 구분하기 힘들며 배는 아직 들어가 있습니다.</td>
                             <td>매우 많은 양의 지방이 목, 척추, 몸 쪽 꼬리에 축적되어 살이 접히며 허리, 배가 구분이 안됩니다. 사지에도 지방이 축적되며 복부팽창이 있습니다.</td>
                         </tr>
-
                     </table>
+                    <a href="bcs#two"> < BACK</a>
         </div>
     </form>
     </div>

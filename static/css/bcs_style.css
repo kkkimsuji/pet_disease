@@ -6,12 +6,14 @@ element.style {
 /*흰색 박스 부분*/
 .hRbrmk {
     padding: 60px 50px;
-    width: 620px;
+    width: 700px;
     background-color: rgb(255, 255, 255);
     border-radius: 14px;
     box-sizing: border-box;
     box-shadow: rgba(222, 222, 224, 0.65) 0px 12px 25px -20px;
+    justify-content: center;
 }
+
 /*회색부분*/
 .fNKwjb {
     display: flex;
@@ -55,6 +57,7 @@ element.style {
 
 /*bcs 선택 버튼들의 정렬*/
 .fptxwn {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     max-width: 360px;
@@ -77,10 +80,7 @@ element.style {
         -webkit-box-align: center;
         align-items: center;
         flex-direction: column;
-        width: 160px;
-        height: 140px;
         box-sizing: border-box;
-        margin-right: 20px;
         background-color: rgb(255, 255, 255);
         color: rgb(9, 9, 9);/* 마우스가 올라갔을 때 */
     }
@@ -122,8 +122,7 @@ p {
     height: 150px;
     box-sizing: border-box;
     color: rgb(207, 206, 206);
-    margin-right: 20px;
-    margin-top: 20px;
+    margin:auto;
 }
 
 
@@ -135,4 +134,20 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: "Apple SD Gothic Neo", sans-serif;
+}
+
+.table_center{
+    padding : auto;
+    margin : auto;
+    }
+
+.bcs_describe {
+    width : 60%
+    margin: auto; /* 수평 가운데 정렬 */
+    text-align: center; /* 내용을 수평 가운데 정렬 */
+    padding: 20px; /* 내용 주위에 패딩 추가 (원하는 크기로 조절) */
+    box-sizing: border-box; /* 패딩을 포함한 크기로 계산 */
+    display: flex;
+    flex-direction: column; /* 내용을 세로로 정렬 */
+    justify-content: center; /* 수직 가운데 정렬 */
 }
