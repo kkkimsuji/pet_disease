@@ -1,23 +1,33 @@
 {% extends 'index.html' %}
 {% block content %}
 
-    <meta charset="UTF-8">
-    <title>Result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>진단 결과</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/about.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <noscript>
+        <link rel="stylesheet" href="/static/css/noscript.css"/>
+    </noscript>
+    <script src="https://kit.fontawesome.com/f0e95d9bf1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <div id="process"></div>
+<hr/>
     <div class="grid ">
-
         <div class="row">
-            <div class="col text-center">
-                <p>📍 바운딩 박스 형태 : 증상명 + 숫자
-                    <br>📍 숫자는 Confidence로 확률을 의미하며 0부터 1 미만의 값을 가집니다
-                    <br>📍 탐지가 되지 않았어요 ➡️ Petom은 confidence 값이 0.25 이상인 경우에만 박스가 표시됩니다
-                    <br>🐾 예: erosion_ulcer 0.69 ➡️ 69%의 확률로 미란∙궤양 증상이라는 의미입니다</p>
-
+            <div class="col text-left">
+		<h3><strong></strong>진단 결과</strong></h3><br>
+                <p>🐱 숫자는 확률을 의미하며 0부터 1 미만의 값을 가집니다
+		<br>🐶 erosion_ulcer 0.69 >>> 69%의 확률로 erosion(미란) 증상이라는 의미입니다
+		<br>🐱 탐지가 되지 않는 경우 >>> 확률값이 0.25 이상인 경우에만 표시됩니다</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-6 result-col">
-                <p class="result-left">탐지 결과</p>
+                <p class="result-left">진단 결과</p>
                 <img class="result-img" src="data:image/jpeg;base64,{{ img_data }}" alt="결과">
             </div>
             <div class="col-md-6 result-explanation">
@@ -49,8 +59,22 @@
                             class="bi bi-box-arrow-up-right"></i></a>
                 </p>
             </div>
-
         </div>
     </div>
+    <!-- Footer -->
+    <section id="footer">
+        <ul class="icons">
+            <li><a href="https://github.com/kkkimsuji/team_pet" target="_blank"><i
+                    class="fa-brands fa-github fa-2x"></i></a></li>
+        </ul>
+    </section>
+
+    <!-- Scripts -->
+
+    <script defer src="/static/js/browser.min.js"></script>
+    <script defer src="/static/js/breakpoints.min.js"></script>
+    <script defer src="/static/js/util.js"></script>
+    <script defer src="/static/js/main.js"></script>
+    <script defer src="/static/js/about.js"></script>
 
 {% endblock %}
