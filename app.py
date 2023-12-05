@@ -3,8 +3,7 @@ import io
 import torch
 from PIL import Image
 from flask import Flask, render_template, request, abort
-#import requests, json
-
+import requests, json
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -25,28 +24,29 @@ def about():
 @app.route('/skin_detect', methods=['GET', 'POST'])
 def skin_detect():
     if request.method == 'POST':
-
-        im_file = request.files['file']
-        if im_file != '':
-            im_bytes = im_file.read()
-            img = Image.open(io.BytesIO(im_bytes))
-
-            results = model(img, size=640)  # inference
-
-            results.ims  # array of original images (as np array) passed to model for inference
-            results.render()  # updates results.imgs with boxes and labels
-            for img in results.ims:  # 'JpegImageFile' -> bytes-like object
-                buffered = io.BytesIO()
-                img_base64 = Image.fromarray(img)
-                img_base64.save(buffered, format="JPEG")
-                encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
-                    'utf-8')  # base64 encoded image with results
-                return render_template('result.html', img_data=encoded_img_data)
-        else:
-            abort(404)
+        return render_template('result.html')
+        # im_file = request.files['file']
+        # if im_file != '':
+        #     im_bytes = im_file.read()
+        #     img = Image.open(io.BytesIO(im_bytes))
+        #
+        #     results = model(img, size=640)  # inference
+        #
+        #     results.ims  # array of original images (as np array) passed to model for inference
+        #     results.render()  # updates results.imgs with boxes and labels
+        #     for img in results.ims:  # 'JpegImageFile' -> bytes-like object
+        #         buffered = io.BytesIO()
+        #         img_base64 = Image.fromarray(img)
+        #         img_base64.save(buffered, format="JPEG")
+        #         encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
+        #             'utf-8')  # base64 encoded image with results
+        #         return render_template('result.html', img_data=encoded_img_data)
+        # else:
+        #     abort(404)
 
     else:
         return render_template("skin_detect.html")
+
 
 @app.route('/eye_detect', methods=['GET', 'POST'])
 def eye_detect():
@@ -74,42 +74,55 @@ def eye_detect():
     else:
         return render_template("eye_detect.html")
 
+
 @app.route('/bcs')
 def bcs():
     return render_template("bcs.html")
+
 
 @app.route('/hospital')
 def hospital():
     return render_template("hospital.html")
 
+
 @app.route('/dog_bcs')
 def dog_bcs():
     return render_template("dog_bcs.html")
+
 
 @app.route('/cat_bcs')
 def cat_bcs():
     return render_template("cat_bcs.html")
 
+
 @app.route('/bcs_1')
 def bcs_1():
     return render_template("bcs_1.html")
+
+
 @app.route('/bcs_2')
 def bcs_2():
     return render_template("bcs_2.html")
+
+
 @app.route('/bcs_3')
 def bcs_3():
     return render_template("bcs_3.html")
+
+
 @app.route('/bcs_4')
 def bcs_4():
     return render_template("bcs_4.html")
+
+
 @app.route('/bcs_5')
 def bcs_5():
     return render_template("bcs_5.html")
 
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
-
 
 
 if __name__ == '__main__':
