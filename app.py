@@ -41,7 +41,7 @@ def skin_detect():
                 img_base64.save(buffered, format="JPEG")
                 encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
                     'utf-8')  # base64 encoded image with results
-                return render_template('skin_result.html', img_data=encoded_img_data)
+                return render_template('result.html', img_data=encoded_img_data)
         else:
             abort(404)
 
@@ -67,7 +67,7 @@ def eye_detect():
                 img_base64.save(buffered, format="JPEG")
                 encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
                     'utf-8')  # base64 encoded image with results
-                return render_template('eye_result.html', img_data=encoded_img_data)
+                return render_template('result.html', img_data=encoded_img_data)
         else:
             abort(404)
 
