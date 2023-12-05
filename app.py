@@ -82,7 +82,7 @@ def bcs():
 
 @app.route('/hospital')
 def hospital():
-    return render_template("hospital.html")
+    return render_template("hospital.html",api_keys='e4780035288430c0c50d0571a16174f1', markers=markers)
 
 
 @app.route('/dog_bcs')
