@@ -299,6 +299,24 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     }
 }
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+        // 현재 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            // 현재 위치를 중심으로 지도를 표시합니다
+            var currentPosition = new kakao.maps.LatLng(lat, lng);
+            map.setCenter(currentPosition);
+        }, function (error) {
+            // 위치 정보를 얻어오는 데 실패한 경우 처리
+            alert('현재 위치를 가져올 수 없습니다.');
+        });
+    } else {
+        alert('Geolocation이 지원되지 않습니다.');
+    }
+}
 </script>
 </body>
 <!--     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
