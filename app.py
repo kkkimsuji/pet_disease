@@ -31,17 +31,17 @@ def skin_detect():
             im_bytes = im_file.read()
             img = Image.open(io.BytesIO(im_bytes))
 
-            skin_results = model(img, size=640)  # inference
+            results = model(img, size=640)  # inference
 
-            skin_results.ims  # array of original images (as np array) passed to model for inference
-            skin_results.render()  # updates results.imgs with boxes and labels
-            for img in skin_results.ims:  # 'JpegImageFile' -> bytes-like object
+            results.ims  # array of original images (as np array) passed to model for inference
+            results.render()  # updates results.imgs with boxes and labels
+            for img in results.ims:  # 'JpegImageFile' -> bytes-like object
                 buffered = io.BytesIO()
                 img_base64 = Image.fromarray(img)
                 img_base64.save(buffered, format="JPEG")
                 encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
                     'utf-8')  # base64 encoded image with results
-                return render_template('skin_result.html', img_data=encoded_img_data)
+                return render_template('result.html', img_data=encoded_img_data)
         else:
             abort(404)
 
@@ -57,17 +57,17 @@ def eye_detect():
             im_bytes = im_file.read()
             img = Image.open(io.BytesIO(im_bytes))
 
-            eye_results = model(img, size=640)  # inference
+            results = model(img, size=640)  # inference
 
-            eye_results.ims  # array of original images (as np array) passed to model for inference
-            eye_results.render()  # updates results.imgs with boxes and labels
-            for img in eye_results.ims:  # 'JpegImageFile' -> bytes-like object
+            results.ims  # array of original images (as np array) passed to model for inference
+            results.render()  # updates results.imgs with boxes and labels
+            for img in results.ims:  # 'JpegImageFile' -> bytes-like object
                 buffered = io.BytesIO()
                 img_base64 = Image.fromarray(img)
                 img_base64.save(buffered, format="JPEG")
                 encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
                     'utf-8')  # base64 encoded image with results
-                return render_template('eye_result.html', img_data=encoded_img_data)
+                return render_template('result.html', img_data=encoded_img_data)
         else:
             abort(404)
 
@@ -80,7 +80,7 @@ def bcs():
 
 @app.route('/hospital')
 def hospital():
-    return render_template("hospital.html")
+    return render_template("hospital.html",api_keys='e4780035288430c0c50d0571a16174f1', markers=markers)
 
 @app.route('/dog_bcs')
 def dog_bcs():

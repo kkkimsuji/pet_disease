@@ -88,8 +88,8 @@
 		    <br>🐶 업로드된 이미지와 결과 이미지는 저장되지 않습니다</p>
                 </div>
                 <div class="col-6 col-12-medium">
-	                <form name="frm" action="/detect" method="POST" enctype="multipart/form-data">
-	                    <label class="sample-label right">진단 받을 반려동물 사진 파일을 선택해 주세요</label>
+	                <form name="frm" action="/eye_detect" method="POST" enctype="multipart/form-data">
+	                    <label class="sample-label right">진단 받을 사진 파일을 선택해 주세요</label>
 	                    <input class="form-control" type="file" id="imgUpload" name="file" id="formFile"
 	                           onchange="readURL(this);"
 	                            accept=".jpeg,.png,.jpg"
@@ -99,11 +99,12 @@
 	                    <br>
 	                    <button type="submit" id="submit" class="btn btn-danger submit-btn" onclick="loading()">진단 받기</button>
 	                </form>
+			<div id="process"></div>
                 </div>
             </div>
         </div>
     </section>
-<br>
+<br><br><br>
 
     <!-- Footer -->
     <section id="footer">
