@@ -12,20 +12,14 @@ import pandas as pd
 app = Flask(__name__, static_url_path='/static')
 
 sqlite_db_path = 'sqlite:///DB.db'
-
 engine = create_engine(sqlite_db_path)
 
 def get_matching_data(model_result):
 
-    df = pd.read_sql_table('user',engine)
-
-    filtered_df = df[df['di_______결과값컬럼______'] == model_result]
-
+    df = pd.read_sql_table('disaese',engine)
+    filtered_df = df[df['result'] == model_result]
     matching_data = filtered_df.to_dict(orient='records')
     return matching_data
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mndoc_database.db'
-db = SQLAlchemy(app)
 
 class NmdocDataModel():
     id = db.Column(db.Integer,primary_key=True)
@@ -67,16 +61,16 @@ def skin_detect():
         img_file = request.files['file']
 
         results = model.predict(source='static/images/result_sample_eu.png', save=True)
-        # model_result =  결과값 중 두번째 이름 추출
+        model_result =  result.split(' ')[1]
         matching_data = get_matching_data(model_result)
 
         return render_template('result.html', matching_data=matching_data,img_data=encoded_img_data)
 
-        if im_file != '':
-            im_bytes = im_file.read()
-            img = Image.open(io.BytesIO(im_bytes))
+        #if im_file != '':
+        #    im_bytes = im_file.read()
+        #    img = Image.open(io.BytesIO(im_bytes))
 
-            results = model.predict(source='static/images/result_sample_eu.png', save=True)
+        #    results = model.predict(source='static/images/result_sample_eu.png', save=True)
 
 
 
@@ -91,8 +85,8 @@ def skin_detect():
             #     encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
             #         'utf-8')  # base64 encoded image with results
             #     return render_template('result.html', img_data=encoded_img_data)
-        else:
-            abort(404)
+        #else:
+        #    abort(404)
 
     else:
         return render_template("skin_detect.html")
