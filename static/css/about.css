@@ -99,8 +99,11 @@ h6 {
 
 .container {
     margin: 0 auto;
+    display: flex;
+    align-items: center;
     max-width: calc(100% - 4em);
     width: 60em;
+    justify-content: center;
 }
 
 .container.xsmall {
@@ -130,6 +133,7 @@ h6 {
 @media screen and (max-width: 980px) {
 
     .container {
+        justify-content: center;
         max-width: 100% !important;
         width: 100% !important;
     }
@@ -139,6 +143,7 @@ h6 {
 @media screen and (max-width: 480px) {
 
     .container {
+        justify-content: center;
         max-width: calc(100% - 3em);
     }
 
