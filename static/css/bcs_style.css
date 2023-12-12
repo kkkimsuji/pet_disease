@@ -151,3 +151,18 @@ body {
     flex-direction: column; /* 내용을 세로로 정렬 */
     justify-content: center; /* 수직 가운데 정렬 */
 }
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Optional: You can also add some padding to the container */
+.video-container iframe {
+    padding: 5px;
+}
+
+.v_title {
+    font-size: 12px; /* 원하는 폰트 크기로 조절하세요 */
+}
