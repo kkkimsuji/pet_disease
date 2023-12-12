@@ -3,15 +3,52 @@ import io
 import torch
 from PIL import Image
 from flask import Flask, render_template, request, abort
-
-# import requests, json
-
+import requests, json
+from ultralytics import YOLO
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine
+import pandas as pd
 
 app = Flask(__name__, static_url_path='/static')
 
-# 학습시킨 모델
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='models_train/petom_weights.pt', force_reload=True)
+sqlite_db_path = 'sqlite:///DB.db'
 
+engine = create_engine(sqlite_db_path)
+
+def get_matching_data(model_result):
+
+    df = pd.read_sql_table('user',engine)
+
+    filtered_df = df[df['di_______결과값컬럼______'] == model_result]
+
+    matching_data = filtered_df.to_dict(orient='records')
+    return matching_data
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mndoc_database.db'
+db = SQLAlchemy(app)
+
+class NmdocDataModel():
+    id = db.Column(db.Integer,primary_key=True)
+
+
+model = YOLO("best.pt")
+
+
+# 학습시킨 모델
+# model = torch.hub.load('ultralytics/ultralytics', 'custom', path='models_train/best.pt', force_reload=True)
+# model = YOLO("models_train/best.pt")  # load a pretrained model (recommended for training)
+
+
+#
+# # Load a model
+# model = YOLO("yolov8n.yaml")  # build a new model from scratch
+# model = YOLO("yolov8n.pt")  # load a pretrained model (recommended for training)
+#
+# # Use the model
+# model.train(data="coco128.yaml", epochs=3)  # train the model
+# metrics = model.val()  # evaluate model performance on the validation set
+# results = model("https://ultralytics.com/images/bus.jpg")  # predict on an image
+# path = model.export(format="onnx")  # export the model to ONNX format
 
 @app.route('/')
 def index():
@@ -27,22 +64,33 @@ def about():
 def skin_detect():
     if request.method == 'POST':
 
-        im_file = request.files['file']
+        img_file = request.files['file']
+
+        results = model.predict(source='static/images/result_sample_eu.png', save=True)
+        # model_result =  결과값 중 두번째 이름 추출
+        matching_data = get_matching_data(model_result)
+
+        return render_template('result.html', matching_data=matching_data,img_data=encoded_img_data)
+
         if im_file != '':
             im_bytes = im_file.read()
             img = Image.open(io.BytesIO(im_bytes))
 
-            results = model(img, size=640)  # inference
+            results = model.predict(source='static/images/result_sample_eu.png', save=True)
 
-            results.ims  # array of original images (as np array) passed to model for inference
-            results.render()  # updates results.imgs with boxes and labels
-            for img in results.ims:  # 'JpegImageFile' -> bytes-like object
-                buffered = io.BytesIO()
-                img_base64 = Image.fromarray(img)
-                img_base64.save(buffered, format="JPEG")
-                encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
-                    'utf-8')  # base64 encoded image with results
-                return render_template('result.html', img_data=encoded_img_data)
+
+
+            # results = model.predict(img)  # inference
+            #
+            # results.ims  # array of original images (as np array) passed to model for inference
+            # results.render()  # updates results.imgs with boxes and labels
+            # for img in results.ims:  # 'JpegImageFile' -> bytes-like object
+            #     buffered = io.BytesIO()
+            #     img_base64 = Image.fromarray(img)
+            #     img_base64.save(buffered, format="JPEG")
+            #     encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
+            #         'utf-8')  # base64 encoded image with results
+            #     return render_template('result.html', img_data=encoded_img_data)
         else:
             abort(404)
 
@@ -59,7 +107,7 @@ def eye_detect():
             im_bytes = im_file.read()
             img = Image.open(io.BytesIO(im_bytes))
 
-            results = model(img, size=640)  # inference
+            results = model(img)  # inference
 
             results.ims  # array of original images (as np array) passed to model for inference
             results.render()  # updates results.imgs with boxes and labels
