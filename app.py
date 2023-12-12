@@ -21,9 +21,6 @@ def get_matching_data(model_result):
     matching_data = filtered_df.to_dict(orient='records')
     return matching_data
 
-class NmdocDataModel():
-    id = db.Column(db.Integer,primary_key=True)
-
 
 model = YOLO("best.pt")
 
@@ -64,13 +61,13 @@ def skin_detect():
         model_result =  result.split(' ')[1]
         matching_data = get_matching_data(model_result)
 
-        return render_template('result.html', matching_data=matching_data,img_data=encoded_img_data)
+        return render_template('result.html', matching_data=matching_data)
 
-        #if im_file != '':
-        #    im_bytes = im_file.read()
-        #    img = Image.open(io.BytesIO(im_bytes))
+        # if im_file != '':
+        #     im_bytes = im_file.read()
+        #     img = Image.open(io.BytesIO(im_bytes))
 
-        #    results = model.predict(source='static/images/result_sample_eu.png', save=True)
+        #     results = model.predict(source='static/images/result_sample_eu.png', save=True)
 
 
 
@@ -85,8 +82,8 @@ def skin_detect():
             #     encoded_img_data = base64.b64encode(buffered.getvalue()).decode(
             #         'utf-8')  # base64 encoded image with results
             #     return render_template('result.html', img_data=encoded_img_data)
-        #else:
-        #    abort(404)
+        # else:
+        #     abort(404)
 
     else:
         return render_template("skin_detect.html")
