@@ -60,8 +60,19 @@ def skin_detect():
         results = model.predict(source='static/images/result_sample_eu.png', save=True)
         model_result =  result.split(' ')[1]
         matching_data = get_matching_data(model_result)
+        
+        image_directory = 'runs/classify/predict/'
+    
+        # 이미지 파일명을 동적으로 얻어오기
+        image_files = os.listdir(image_directory)
+        if not image_files:
+            return "No image files found."
+    
+        # 첫 번째 이미지 파일 사용
+        dynamic_image_filename = image_files[0]
+        image_path = os.path.join(image_directory, dynamic_image_filename)
 
-        return render_template('result.html', matching_data=matching_data)
+        return render_template('result.html', matching_data=matching_data,img_path=img_path)
 
         # if im_file != '':
         #     im_bytes = im_file.read()
