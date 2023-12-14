@@ -2,13 +2,14 @@ import base64
 import io
 import torch
 from PIL import Image
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request, abort, send_from_directory, send_file
 import requests, json
 from ultralytics import YOLO
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 import pandas as pd
 import os
+import shutil
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -22,6 +23,43 @@ def get_matching_data(model_result):
     matching_data = filtered_df.to_dict(orient='records')
     return matching_data
 
+
+def delete_directory(directory_path):
+    try:
+        # 디렉토리 및 하위 항목 삭제
+        shutil.rmtree(directory_path)
+    except OSError as e:
+        print(f"디렉토리 삭제 중 오류 발생: {e}")
+
+
+def get_image(filename):
+    # 정적 파일을 저장한 디렉토리의 경로를 지정
+    directory = os.path.join(app.root_path, 'runs', 'classify', 'predict')
+
+    # 해당 파일을 반환
+    return send_from_directory(directory, filename)
+
+
+def convert_image_format(input_path, output_path, new_format):
+    try:
+        # 이미지 열기
+        with Image.open(input_path) as img:
+            # 이미지를 지정된 형식으로 저장
+            img.save(output_path, format=new_format)
+            print(f"이미지 형식이 {new_format}으로 변경되었습니다.")
+    except Exception as e:
+        print(f"오류 발생: {e}")
+
+
+# def get_image():
+#     # 이미지 파일 경로를 설정합니다.
+#     image_path = 'static/sample_image.jpg'
+#
+#     # MIME 타입 설정
+#     mime_type = 'image/jpeg'
+#
+#     return send_file(image_path, mimetype=mime_type)
+#
 
 model = YOLO("best.pt")
 
@@ -97,7 +135,8 @@ def skin_detect():
 @app.route('/eye_detect', methods=['GET', 'POST'])
 def eye_detect():
     if request.method == 'POST':
-
+        directory_to_delete = "runs/classify/predict/"
+        delete_directory(directory_to_delete)
 
         img_file = request.files['file']
         img = Image.open(img_file)
@@ -117,22 +156,39 @@ def eye_detect():
 
         matching_data = get_matching_data(model_result)
 
-        image_directory = 'runs/classify/predict/'
+        # img_path = get_image('image0.jpg')
+        # image_directory = 'runs/classify/predict/'
+        #
+        # # 이미지 파일명을 동적으로 얻어오기
+        # image_files = os.listdir(image_directory)
+        # if not image_files:
+        #     return "No image files found."
+        #
+        # # 첫 번째 이미지 파일 사용
+        # dynamic_image_filename = image_files[0]
+        # img_path = os.path.join(image_directory, dynamic_image_filename)
+        # mime_type = 'image/jpeg'
+        source_path = 'runs/classify/predict/image0.jpg'
 
-        # 이미지 파일명을 동적으로 얻어오기
-        image_files = os.listdir(image_directory)
-        if not image_files:
-            return "No image files found."
+        # 대상 디렉토리
+        target_directory = 'static/images/'
 
-        # 첫 번째 이미지 파일 사용
-        dynamic_image_filename = image_files[0]
-        img_path = os.path.join(image_directory, dynamic_image_filename)
+        # 대상 파일 경로
+        target_path = os.path.join(target_directory, "result_img.jpg")
 
-        return render_template('result.html', matching_data=matching_data, img_path=img_path)
+        try:
+            # 이미지 파일을 대상 디렉토리로 이동
+            shutil.move(source_path, target_path)
+        except Exception as e:
+            print(f"이동 중 오류 발생: {e}")
+
+        return render_template('result.html', matching_data=matching_data)
 
 
     else:
         return render_template("eye_detect.html")
+
+
 # @app.route('/eye_detect', methods=['GET', 'POST'])
 # def eye_detect():
 #     if request.method == 'POST':
@@ -211,4 +267,4 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, threaded=True)
+    app.run(host='0.0.0.0', port=5000, threaded=True, debug=True)
