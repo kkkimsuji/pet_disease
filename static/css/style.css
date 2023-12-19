@@ -102,7 +102,7 @@ body {
 
 .sample-label.right {
   margin-top: 2%;
-  width: 60%;
+  width: 80%;
   height: 6%;
   margin-bottom: 2%;
   text-align: center;
@@ -125,6 +125,11 @@ body {
 .submit-btn {
   margin-top: 2%;
   display: inline-block;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .col-md-6.detect,

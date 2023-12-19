@@ -13,7 +13,6 @@
     <script src="https://kit.fontawesome.com/f0e95d9bf1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-
     <div id="process"></div>
 
     <div class="grid text-center">
@@ -37,25 +36,27 @@
         </div> -->
 
         <div class="row">
-            <div class="col-md-6 result-col">
+            <div class = 'container'>
                 <p class="result-left">진단 결과</p>
-                    <img class="result-img" src='/static/images/result_img.jpg' alt="{{ matching_data.disease }}">
+                <img class="result-img" src="/static/images/result_img.jpg" alt="{{ matching_data.disease }}"><br>
 
-            </div>
-            <div class="col-md-6 result-explanation">
                 <p class="result-right">결과 설명</p>
-                <ul>
-                    {% for data in matching_data %}
-                        <li>{{ data.disease }}</li>
-                        <li>정보 : {{ data.info }}</li>
-                        <li>증상 : {{ data.symptom }}</li>
-                        <li>원인 : {{ data.cause }}</li>
-                        <li>치료법 : {{ data.therapy }}</li>
-                    {% endfor %}
-                </ul>
+
+                {% for data in matching_data %}
+                <h3><strong>{{ data.disease }}</strong></h3>
+                <p>{{ data.info }}</p>
+                <p class="result-right"><strong>증상</strong></p>
+                <p>{{ data.symptom }}</p><br>
+                <p class="result-right"><strong>원인</strong></p>
+                <p>{{ data.cause }}</p>
+                <p class="result-right"><strong>치료법</strong></p>
+                <p>{{ data.therapy }}</p>
+                {% endfor %}
+
             </div>
         </div>
     </div>
+<br><br><br>
     <!-- Footer -->
     <section id="footer">
         <ul class="icons">
