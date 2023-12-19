@@ -45,9 +45,12 @@
                 {% for data in matching_data %}
                 <h3><strong>{{ data.disease }}</strong></h3>
                 <p>{{ data.info }}</p>
-                <li>증상 : {{ data.symptom }}</li><br>
-                <li>원인 : {{ data.cause }}</li><br>
-                <li>치료법 : {{ data.therapy }}</li>
+                <p class="result-right"><strong>증상</strong></p>
+                <p>{{ data.symptom }}</p><br>
+                <p class="result-right"><strong>원인</strong></p>
+                <p>{{ data.cause }}</p>
+                <p class="result-right"><strong>치료법</strong></p>
+                <p>{{ data.therapy }}</p>
                 {% endfor %}
 
             </div>
