@@ -60,3 +60,7 @@
 ### 4. 병원찾기
 
 ![image](https://github.com/kkkimsuji/team_pet/assets/117288953/5260e72d-72ff-4a74-8351-b8efe7c0e779)
+
+
+[AI빅데이터_2팀_결과보고서.pdf](https://github.com/kkkimsuji/team_pet/files/13788241/AI._2._.pdf)
+
