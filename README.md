@@ -30,3 +30,26 @@
 ㅇ 기존의 유사 서비스(앱 '티티케어')에서 진단 가능한 질환뿐만 아니라 다른 종류의 질환도 감지할 수 있으며, 감지 가능한 질환은 피부 6개 및 안구 질환 12개입니다.
    
 ㅇ 비만도 측정, 인근 동물병원 검색이 가능한 서브 기능 또한 제공해줍니다.
+
+# 프로젝트 수행 결과
+
+### 1. About
+
+   ![image](https://github.com/kkkimsuji/team_pet/assets/117288953/eb1b22b8-9030-4fb4-8ca0-5876675f4aaf)
+
+### 2. 피부, 안구 질환 진단 및 결과
+
+
+![image](https://github.com/kkkimsuji/team_pet/assets/117288953/6c8f9477-385f-47f5-9a08-df688e1e0605)
+![image](https://github.com/kkkimsuji/team_pet/assets/117288953/874e347b-029a-4fe9-a650-a5980d5cf487)
+
+### 3. BCS 비만도 측정
+
+
+![image](https://github.com/kkkimsuji/team_pet/assets/117288953/ea9b9312-746c-4fb8-9f8b-987f33668a84)
+![image](https://github.com/kkkimsuji/team_pet/assets/117288953/1372acd6-26f5-41ed-a2db-e5974cf52d6d)
+![image](https://github.com/kkkimsuji/team_pet/assets/117288953/13909a00-fac6-4bed-89db-00d05177d125)
+
+### 4. 병원찾기
+
+![image](https://github.com/kkkimsuji/team_pet/assets/117288953/5260e72d-72ff-4a74-8351-b8efe7c0e779)
