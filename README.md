@@ -33,9 +33,9 @@
 
 ### 사용 데이터
 
-ㅇAI-Hub [반려동물 피부 질환 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=561)
+ㅇAI-Hub [반려동물 피부 질환 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=561), 일반카메라 데이터
 
-ㅇAI-Hub [반려동물 안구 질환 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=562)
+ㅇAI-Hub [반려동물 안구 질환 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=562), 일반카메라 데이터
 
 
 # 프로젝트 수행 결과
