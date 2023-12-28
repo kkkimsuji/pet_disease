@@ -45,26 +45,26 @@
                         <h4>[반려동물의 질환 부위를 찍어주세요]</h4>
                     </header>
                     <p>🐱 질환 부위가 사진의 50% 이상 차지하도록 해주세요
-		    <br>🐶 선명하게 잘 보이도록 밝은 곳에서 찍어주세요</p>
-			<label class="sample-label">미란∙궤양 샘플</label>
-	                <br>
-	                <a href="/static/images/erosion_ulcer_sample1.jpg" download="erosion_ulcer_sample1.jpg"
-	                   title="erosion_ulcer_sample1"><img class="sample-image img-fluid rounded"
-	                                                      src="/static/images/erosion_ulcer_sample1.jpg" alt="미란_샘플1"></a>
-	                <a href="/static/images/erosion_ulcer_sample2.jpg" download="erosion_ulcer_sample2.jpg"
-	                   title="erosion_ulcer_sample2"><img class="sample-image img-fluid rounded"
-	                                                      src="/static/images/erosion_ulcer_sample2.jpg" alt="미란_샘플2"></a>
-	                <br>
-	                <label class="sample-label">결절∙종괴 샘플</label>
-	                <br>
-	                <a href="/static/images/nodule_tumor_sample1.jpg" download="nodule_tumor_sample1.jpg"
-	                   title="nodule_tumor_sample1"><img class="sample-image img-fluid rounded"
-	                                                     src="/static/images/nodule_tumor_sample1.jpg"
-	                                                     alt="결절_샘플2"></a>
-	                <a href="/static/images/nodules.jpg" download="nodules.jpg"
-	                   title="nodules"><img class="sample-image img-fluid rounded"
-	                                                     src="/static/images/nodules.jpg"
-	                                                     alt="결절_샘플2"></a>
+          <br>🐶 선명하게 잘 보이도록 밝은 곳에서 찍어주세요</p>
+         <label class="sample-label">미란∙궤양 샘플</label>
+                   <br>
+                   <a href="/static/images/erosion_ulcer_sample1.jpg" download="erosion_ulcer_sample1.jpg"
+                      title="erosion_ulcer_sample1"><img class="sample-image img-fluid rounded"
+                                                         src="/static/images/erosion_ulcer_sample1.jpg" alt="미란_샘플1"></a>
+                   <a href="/static/images/erosion_ulcer_sample2.jpg" download="erosion_ulcer_sample2.jpg"
+                      title="erosion_ulcer_sample2"><img class="sample-image img-fluid rounded"
+                                                         src="/static/images/erosion_ulcer_sample2.jpg" alt="미란_샘플2"></a>
+                   <br>
+                   <label class="sample-label">결절∙종괴 샘플</label>
+                   <br>
+                   <a href="/static/images/nodule_tumor_sample1.jpg" download="nodule_tumor_sample1.jpg"
+                      title="nodule_tumor_sample1"><img class="sample-image img-fluid rounded"
+                                                        src="/static/images/nodule_tumor_sample1.jpg"
+                                                        alt="결절_샘플2"></a>
+                   <a href="/static/images/nodules.jpg" download="nodules.jpg"
+                      title="nodules"><img class="sample-image img-fluid rounded"
+                                                        src="/static/images/nodules.jpg"
+                                                        alt="결절_샘플2"></a>
                 </div>
             </div>
     </section>
@@ -79,22 +79,22 @@
                         <h4>[반려동물의 사진을 업로드 해주세요]</h4>
                     </header>
                     <p>🐶 여러장 첨부할수록 진단 정확도가 높아집니다
-		    <br>🐱 이미지 파일(jpg, jpge, png)만 업로드 가능합니다
-		    <br>🐶 업로드된 이미지와 결과 이미지는 저장되지 않습니다</p>
-	                <form name="frm" action="/skin_detect" method="POST" enctype="multipart/form-data">
-	                    <label class="sample-label right">진단 받을 사진 파일을 선택해 주세요</label>
-	                    <input class="form-control" type="file" id="imgUpload" name="file" id="formFile"
-	                           onchange="readURL(this);"
-	                            accept=".jpeg,.png,.jpg"
-	                            required>
-	                    <br>
-	                    <img id="preview"/>
-	                    <br>
+          <br>🐱 이미지 파일(jpg, jpge, png)만 업로드 가능합니다
+          <br>🐶 업로드된 이미지와 결과 이미지는 저장되지 않습니다</p>
+                   <form name="frm" action="/skin_detect" method="POST" enctype="multipart/form-data">
+                       <label class="sample-label right">진단 받을 사진 파일을 선택해 주세요</label>
+                       <input class="form-control" type="file" id="imgUpload" name="file" id="formFile"
+                              onchange="readURL(this);"
+                               accept=".jpeg,.png,.jpg"
+                               required>
+                       <br>
+                       <img id="preview"/>
+                       <br>
                     </div>
                         <div class = container>
-	                    <button type="submit" id="submit" class="btn btn-danger submit-btn" onclick="loading()">진단 받기</button>
+                       <button type="submit" id="submit" class="btn btn-danger submit-btn" onclick="loading()">진단 받기</button>
                         </div>
-	                </form>
+                   </form>
                 </div>
     </section>
 

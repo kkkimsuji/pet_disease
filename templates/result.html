@@ -20,49 +20,37 @@
             <div class="col">
                 <h3><strong>진단 결과</strong></h3><br>
                 <p>🐱 숫자는 확률을 의미하며 0부터 1 미만의 값을 가집니다
-		<br>🐶 안검염 0.69 >>> 69%의 확률로 안검염 증상이라는 의미입니다
+		<br>🐶 erosion_ulcer 0.69 >>> 69%의 확률로 erosion(미란) 증상이라는 의미입니다
 		<br>🐱 탐지가 되지 않는 경우 >>> 확률값이 0.25 이상인 경우에만 표시됩니다</p>
             </div>
         </div>
     </div>
     <div class="grid">
-
+<!--         <div class="row">
+            <div class="col-6 col-12-medium">
+		<h3><strong></strong>진단 결과</strong></h3><br>
+                <p>🐱 숫자는 확률을 의미하며 0부터 1 미만의 값을 가집니다
+		<br>🐶 안검염 0.69 >>> 69%의 확률로 안검염 증상이라는 의미입니다
+		<br>🐱 탐지가 되지 않는 경우 >>> 확률값이 0.25 이상인 경우에만 표시됩니다</p>
+            </div>
+        </div> -->
 
         <div class="row">
             <div class = 'container'>
                 <p class="result-left">진단 결과</p>
-                <img class="result-img" src="/static/images/result_img/result_img.jpg" alt="{{ matching_data.disease }}"><br>
+                <img class="result-img" src="/static/images/result_img.jpg" alt="{{ matching_data.disease }}"><br>
 
-<!--                <p class="result-right">결과 설명</p>-->
+                <p class="result-right">결과 설명</p>
 
                 {% for data in matching_data %}
-                <h2><strong>{{ data.disease }}</strong></h2>
+                <h3><strong>{{ data.disease }}</strong></h3>
                 <p>{{ data.info }}</p>
-                <h4 class="result-right"><strong>증상</strong></h4>
+                <p class="result-right"><strong>증상</strong></p>
                 <p>{{ data.symptom }}</p><br>
-                <h4 class="result-right"><strong>원인</strong></h4>
+                <p class="result-right"><strong>원인</strong></p>
                 <p>{{ data.cause }}</p>
-                <h4 class="result-right"><strong>치료법</strong></h4>
+                <p class="result-right"><strong>치료법</strong></p>
                 <p>{{ data.therapy }}</p>
-
-                <h4 class="result-right"><strong>전문 병원 알아보기</strong></h4>
-                <img class="result-img" src="static/images/animal_hospital.jpg"><br>
-                <h3><strong>냥멍닥터 동물병원</strong></h3>
-                <h4> <strong>{{ data.disease }}</strong>를 중점적으로 치료하는 동물병원입니다.</h4>
-                <p> ◆ 서울특별시 노원구 화랑로 815<br>
-                    ◆ 02-3636-3636<br><br>
-                    진료시간 (전화예약 필수) <br>
-                    ◆ 월~금요일: AM 9:30 ~ PM 6:30<br>
-                    ※ 점심시간: PM 1:00 ~ PM 2:00<br>
-                    ※ 오전접수마감: PM 12:30 / 오후접수마감: PM 6:00<br><br>
-                    ◆ 토요일: AM 9:00 ~ PM 3:00<br>
-                    ※ 점심시간: 없음<br>
-                    ※ 오후접수마감: PM 2:30<br><br>
-                    ◇ 휴진 및 단축진료 (2023년)<br>
-                    ▶ 일요일<br>
-                    ▶ 공휴일<br>
-                    ▶ 기타휴일: 2월 8일 목요일 (병원 자체 휴무)</p>
-                <h4><strong><u>병원 진단 예약하기</u></strong></h4>
                 {% endfor %}
 
             </div>
