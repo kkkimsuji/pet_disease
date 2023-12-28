@@ -31,6 +31,13 @@
    
 ㅇ 비만도 측정, 인근 동물병원 검색이 가능한 서브 기능 또한 제공해줍니다.
 
+### 사용 데이터
+
+ㅇAI-Hub [반려동물 피부 질환 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=561)
+
+ㅇAI-Hub [반려동물 안구 질환 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=562)
+
+
 # 프로젝트 수행 결과
 
 ### 1. About
